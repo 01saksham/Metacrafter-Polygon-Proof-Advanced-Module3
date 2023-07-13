@@ -1,26 +1,41 @@
-# zardkat 🐱
+# zardkat 
 
 A [hardhat-circom](https://github.com/projectsophon/hardhat-circom) template to generate zero-knowledge circuits, proofs, and solidity verifiers
 
 ## Quick Start
-Compile the Multiplier2() circuit and verify it against a smart contract verifier
+Compile the Polycircuit () circuit and verify it against a smart contract verifier
 
 ```
 pragma circom 2.0.0;
 
-/*This circuit template checks that c is the multiplication of a and b.*/  
+include "../../node_modules/circomlib/circuits/gates.circom";
 
-template Multiplier2 () {  
+template Polycircuit () {
+    signal input a;
+    signal input b;
+    signal x;
+    signal y;
+    signal output q;
 
-   // Declaration of signals.  
-   signal input a;  
-   signal input b;  
-   signal output c;  
+    component andGate = AND();
+    component notGate = NOT();
+    component orGate = OR();
 
-   // Constraints.  
-   c <== a * b;  
+    andGate.a <== a;
+    andGate.b <== b;
+    x <== andGate.out;
+
+    notGate.in <== b;
+    y <== notGate.out;
+
+    orGate.a <== x;
+    orGate.b <== y;
+    q <== orGate.out;
+
+    log("q", q);
 }
-component main = Multiplier2();
+
+component main = Polycircuit();
 ```
 ### Install
 `npm i`
