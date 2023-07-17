@@ -55,3 +55,6 @@ To successfully complete the Final Challenge and verify the correctness of the c
 5. Call the `verifyProof()` method on the deployed Verifier contract with the proof and the input values `A=0` and `B=1`. The method should return `true` if the proof is valid for the given inputs, indicating that the circuit implementation is correct.
 
 6. Assert that the output of the `verifyProof()` method is `true`. This will validate the correctness of the circuit.
+
+## License
+This project is licensed under the MIT License. You are free to modify and distribute the code for personal and educational purposes.
