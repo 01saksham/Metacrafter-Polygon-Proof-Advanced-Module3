@@ -2,29 +2,32 @@ pragma circom 2.0.0;
 
 include "../../node_modules/circomlib/circuits/gates.circom";
 
-template Polycircuit () {
-    signal input a;
-    signal input b;
-    signal x;
-    signal y;
-    signal output q;
+template MyCircuit() {
+ signal input A;
+    signal input B;
+    signal X;
+    signal Y;
+    signal output Q;
 
-    component andGate = AND();
-    component notGate = NOT();
-    component orGate = OR();
+  // Define the AND gate
+  X <== A * B;
 
-    andGate.a <== a;
-    andGate.b <== b;
-    x <== andGate.out;
+  // Define the XOR gate (simulating NOT)
+  Y <== A + B -  2 * X;
 
-    notGate.in <== b;
-    y <== notGate.out;
+  // Define the OR gate
+  Q <== X * Y;
 
-    orGate.a <== x;
-    orGate.b <== y;
-    q <== orGate.out;
+log("Output Q = ", Q);
 
-    log("q", q);
 }
 
-component main = Polycircuit();
+component main = MyCircuit();
+
+
+
+
+/* INPUT = {
+    "A": 0,
+    "B": 1
+} */
