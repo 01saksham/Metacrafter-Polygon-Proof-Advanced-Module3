@@ -42,7 +42,7 @@ By running this script, you will deploy the Verifier contract and verify the pro
 
 ## Instructions
 
-To successfully complete the Final Challenge and verify the correctness of the circuit, follow these steps:
+To successfully compile and verify the correctness of the circuit, follow these steps:
 
 1. Write the correct implementation of the `circuit.circom` file based on the provided template. Ensure that the defined AND, XOR, and OR gates perform the intended logic operations.
 
