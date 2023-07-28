@@ -5,27 +5,24 @@ include "../../node_modules/circomlib/circuits/gates.circom";
 template MyCircuit () {
     signal input A;
     signal input B;
-    signal X;
-    signal Y;
+    signal output X;
+    signal output Y;
     signal output Q;
 
     component andGate = AND();
-    component notGate1 = NOT();
-    component notGate2 = NOT();
+    component notGate = NOT();
     component orGate = OR();
 
     andGate.a <== A;
     andGate.b <== B;
     X <== andGate.out;
 
-    notGate1.in <== A;
-    Y <== notGate1.out;
-
-    notGate2.in <== B;
+    notGate.in <== B;
+    Y <== notGate.out;
 
     orGate.a <== X;
     orGate.b <== Y;
-    Q <== orGate.out * notGate2.out;
+    Q <== orGate.out;
 
     log("Output Q = ", Q);
 }
