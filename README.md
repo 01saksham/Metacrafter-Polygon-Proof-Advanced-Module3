@@ -5,7 +5,7 @@ This is a Circom circuit template written in version 2.0.0 of Circom. The circui
 ## Circuit Components
 
 - AND Gate: The AND gate takes input signals A and B and produces an output signal, X, representing the logical AND of A and B.
-- XOR Gate (Simulating NOT): The XOR gate takes input signals A and B and produces an output signal, Y, which simulates the logical NOT operation on A and B.
+- NOT Gate: The NOT gate takes an input signal, in this case, the signal B, and produces an output signal, Y.
 - OR Gate: The OR gate takes input signals X and Y and produces the final output signal, Q, representing the logical OR of X and Y.
 
 ## Usage
